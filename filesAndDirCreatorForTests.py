@@ -2,6 +2,14 @@ import os
 import logging
 from datetime import datetime, timedelta
 
+first_date = "2021-05-17"
+first_time = "12:29:24.195003"
+creation_dir = "C:\\teste\\DATA_LAKE\\"
+number_of_months = "40"
+file_extensions = "TXT,JPG,ETP"
+other_files = ["TESTE.WAV"]
+other_dirs = ["TESTE1", "TESTE2"]
+
 logging.basicConfig(level=logging.INFO)
 
 def create_year_month_day_folders_with_files(start_date, target_directory, month_count):
@@ -93,14 +101,6 @@ def set_folder_modification_date(folder_path, date):
     timestamp = date.timestamp()
     os.utime(folder_path, (timestamp, timestamp))
     logging.info(f'Set modification date for {folder_path} to {date.strftime("%Y-%m-%d")}')
-
-first_date = "2023-07-17"
-first_time = "12:29:24.195003"
-creation_dir = "C:\\teste\\DATA_LAKE\\"
-number_of_months = "24"
-file_extensions = "TXT,JPG,ETP"
-other_files = ["TESTE.WAV"]
-other_dirs = ["TESTE1", "TESTE2"]
 
 create_year_month_day_folders_with_files(first_date, creation_dir, number_of_months)
 create_sequential_files(first_date, first_time, creation_dir, number_of_months, file_extensions)
